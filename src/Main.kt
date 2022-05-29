@@ -70,14 +70,88 @@ fun main(args: Array<String>){
 //            println("четное $a");
 //        } else println("четное $b")
 //    }
+//
+//    var a : Int = 2
+//    when (a){
+//        3 -> println("Значения равно 3")
+//        7 -> println("Значения равно 7")
+//        else  -> println("Другое число")
+//    }
+//////////////////////////////////////////////////////////////////
+    //////////////Array
+    var items: Array<Int> = arrayOf(5,7,12,4,0,1)
 
-    var a : Int = 2
-    when (a){
-        3 -> println("Значения равно 3")
-        7 -> println("Значения равно 7")
-        else  -> println("Другое число")
+    //val someArray = arrayOf(1)
+    println(items.set(0,45))
+    println(items[0])
+    println(items.get(1))
+    println(items.size)
+
+//    for (i in items){
+//        println(i)
+//    }
+    items.forEach {
+        i -> println(i)
     }
+    items.forEachIndexed{ index, i ->
+        println("$i с индексом $index")
+    }
+
+    ///////////////ListOF, Map
+    //var items_list = listOf(5,7,12,4,0,1)
+    var items_List = mutableListOf<Any>()
+    var dogs = listOf<Any>("Bob", "Sunny")
+    items_List.add("Leo")
+    items_List.addAll(4, dogs)
+
+    //var items_map : Map<String,Any> = mapOf("name" to "Bob","age" to 1, "isHasCar" to true)
+
+    var items_map = mutableMapOf("name" to "Bob","age" to 1, "isHasCar" to true)
+    items_map ["city"] = "Bordo"
+    items_map.forEach{key, value -> println("$key -> $value") }
+
+/////////////////////Functon
+sayHello("Hello", 45)
+    var result = add( 3, 4)
+    println(result)
+    println(equalNum(5,3))
 
 
 }
 
+fun sayHello(first: String, number: Int){
+    println("$first - $number")
+
+}
+
+fun add(x:Int, y: Int) : Int{
+    var res = x+y;
+    return res
+}
+fun saySomthing () : String{
+    return "Hello World"
+}
+
+fun equalNum ( a: Int, b: Int): Char? {
+    var ch:Char? = null;
+    if(a<b )
+        ch ='<'
+    else if (a>b)
+        ch = '>'
+    else if(a==b)
+        ch= '='
+    return  ch;
+}
+
+fun printArray(items: List<Any>){
+    items.forEach{
+         i -> println(i)
+    }
+
+}
+fun printMap (i : Map<String,Any>){
+    i.forEach{
+        key,value -> println("$key -> $value")
+    }
+
+}
