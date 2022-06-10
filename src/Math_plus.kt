@@ -1,0 +1,2 @@
+interface Math_plus {
+}
